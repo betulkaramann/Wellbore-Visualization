@@ -32,18 +32,20 @@ df['r'] = r_values
 df['theta'] = theta_values
 df['phi'] = phi_values
 
-fig = go.Figure(data=go.Cone(
+fig = go.Figure(data=go.Streamtube(
     x=x_positions,
     y=y_positions,
     z=z_values,
     u=r_values,
     v=theta_values,
     w=phi_values,
-   sizemode="absolute",
-    sizeref=2,
-    anchor="tip")
-)
+    sizeref = 0.3,
+    colorscale = 'Portland',
+    showscale = False,
+    maxdisplayed = 3000
 
+    )
+)
 fig.update_layout(
     title='3D Streamtube Wellbore Visualization',
     scene=dict(
